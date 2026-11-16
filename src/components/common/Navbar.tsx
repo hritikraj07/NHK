@@ -1,0 +1,179 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Search, Menu, X, Compass, ArrowUpRight } from 'lucide-react';
+import { Logo } from './Logo';
+import { SearchModal } from './SearchModal';
+
+const NAV_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/explore', label: 'Explore' },
+  { href: '/categories', label: 'Categories' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' },
+];
+
+export function Navbar() {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  return (
+    <>
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#FAF9F6]/90 backdrop-blur-md shadow-sm border-b border-nhk-beige'
+            : 'bg-[#FAF9F6] border-b border-nhk-beige/60'
+        }`}
+      >
+        {/* Top Micro-Bar for Pinterest Announcement & Editorial Note */}
+        <div className="bg-[#EDE8DF] text-[11px] tracking-wider uppercase font-medium text-nhk-charcoal/80 py-1.5 px-4 text-center border-b border-nhk-grey-border/40 flex items-center justify-center gap-3">
+          <span>Curated Finds for Mindful Living</span>
+          <span className="hidden sm:inline text-nhk-grey">•</span>
+          <a
+            href="https://pinterest.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1 hover:text-nhk-accent transition-colors font-semibold"
+          >
+            Follow on Pinterest <ArrowUpRight className="w-3 h-3" />
+          </a>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="flex items-center">
+              <Logo size="md" showTagline />
+            </div>
+
+            {/* Desktop Navigation Links */}
+            <nav className="hidden md:flex items-center gap-8">
+              {NAV_LINKS.map((link) => {
+                const isActive =
+                  link.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-sm font-medium tracking-wide transition-colors relative py-1 ${
+                      isActive
+                        ? 'text-nhk-charcoal font-semibold'
+                        : 'text-nhk-grey hover:text-nhk-charcoal'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-nhk-charcoal rounded-full" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Right Action Icons */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Search Trigger */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                className="flex items-center gap-2 px-3 py-2 rounded-full border border-nhk-grey-border/80 text-nhk-grey hover:text-nhk-charcoal hover:border-nhk-charcoal bg-white/70 transition-all text-xs"
+                aria-label="Open search dialog"
+              >
+                <Search className="w-4 h-4 text-nhk-charcoal" />
+                <span className="hidden sm:inline text-nhk-grey">Search...</span>
+                <kbd className="hidden lg:inline text-[10px] bg-nhk-beige px-1.5 py-0.5 rounded text-nhk-grey">
+                  ⌘K
+                </kbd>
+              </button>
+
+              {/* Pinterest Profile Direct Button */}
+              <a
+                href="https://pinterest.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="NHK on Pinterest"
+                className="p-2 rounded-full border border-nhk-grey-border bg-white text-red-600 hover:bg-red-50 hover:border-red-200 transition-all"
+                aria-label="Follow NHK on Pinterest"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 0a12 12 0 0 0-4.37 23.18c-.07-.98-.13-2.48.03-3.55.15-.97 1-4.22 1-4.22s-.25-.52-.25-1.28c0-1.2.7-2.1 1.57-2.1.74 0 1.1.56 1.1 1.23 0 .75-.48 1.86-.72 2.9-.2.87.43 1.58 1.3 1.58 1.56 0 2.76-1.64 2.76-4.02 0-2.1-1.5-3.57-3.66-3.57-2.5 0-3.96 1.87-3.96 3.8 0 .75.29 1.56.65 2 .07.09.08.17.06.26l-.24 1c-.04.16-.14.2-.32.11-1.18-.55-1.92-2.28-1.92-3.66 0-2.98 2.16-5.72 6.25-5.72 3.28 0 5.83 2.34 5.83 5.46 0 3.26-2.05 5.88-4.9 5.88-.96 0-1.86-.5-2.17-1.09l-.59 2.25c-.21.83-.8 1.86-1.19 2.51A12.02 12.02 0 1 0 12 0z" />
+                </svg>
+              </a>
+
+              {/* Mobile Menu Hamburger */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 rounded-lg text-nhk-charcoal hover:bg-nhk-beige transition-colors"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Slide-Down Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-b border-nhk-beige bg-[#FAF9F6] px-6 py-6 animate-in slide-in-from-top-4 duration-200">
+            <div className="flex flex-col gap-4">
+              {NAV_LINKS.map((link) => {
+                const isActive =
+                  link.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-lg font-medium transition-colors py-2 border-b border-nhk-beige/50 ${
+                      isActive
+                        ? 'text-nhk-charcoal font-semibold'
+                        : 'text-nhk-grey hover:text-nhk-charcoal'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+              <div className="pt-2 flex flex-col gap-3">
+                <Link
+                  href="/explore"
+                  className="w-full py-3 rounded-full bg-nhk-charcoal text-white text-center text-sm font-medium hover:bg-nhk-charcoal-dark flex items-center justify-center gap-2"
+                >
+                  <Compass className="w-4 h-4" /> Start Exploring
+                </Link>
+                <Link
+                  href="/admin"
+                  className="text-center text-xs text-nhk-grey hover:text-nhk-charcoal py-1"
+                >
+                  Product Management (Admin)
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Global Search Modal */}
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+    </>
+  );
+}
