@@ -59,6 +59,11 @@ export const metadata: Metadata = {
     shortcut: '/icon.svg',
     apple: '/icon.svg',
   },
+  verification: {
+    other: {
+      'p:domain_verify': 'dd2ecde67fd42b1bf8168b103e47adfd',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -70,6 +75,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <meta name="p:domain_verify" content="dd2ecde67fd42b1bf8168b103e47adfd" />
         {/* Schema.org Organization Structured Data */}
         <script
           type="application/ld+json"
