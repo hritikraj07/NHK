@@ -44,7 +44,9 @@ export function TrendingCollections() {
                 {/* Content Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white flex flex-col justify-end">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-nhk-beige mb-1">
-                    {category.featuredCount} Featured Finds
+                    {category.featuredCount > 0
+                      ? `${category.featuredCount} ${category.featuredCount === 1 ? 'Featured Find' : 'Featured Finds'}`
+                      : 'Collection in Progress'}
                   </span>
                   <h3 className="font-serif text-xl font-bold leading-tight group-hover:text-amber-200 transition-colors">
                     {category.name}

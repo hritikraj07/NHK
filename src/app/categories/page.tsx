@@ -53,7 +53,9 @@ export default function CategoriesPage() {
                       </span>
                       <span className="text-xs text-nhk-grey">•</span>
                       <span className="text-xs text-nhk-grey font-medium">
-                        {category.featuredCount} Featured Objects
+                        {categoryProducts.length > 0
+                          ? `${categoryProducts.length} ${categoryProducts.length === 1 ? 'Featured Object' : 'Featured Objects'}`
+                          : 'Collection in Progress'}
                       </span>
                     </div>
 

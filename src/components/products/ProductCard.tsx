@@ -125,8 +125,9 @@ export function ProductCard({
                 )}
               </>
             ) : (
-              <span className="text-xs font-medium text-nhk-accent">
-                Check Live Price
+              <span className="text-xs font-medium text-emerald-700 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Available on Amazon
               </span>
             )}
           </div>

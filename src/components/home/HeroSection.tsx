@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Compass, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, Compass, Sparkles } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -49,22 +49,6 @@ export function HeroSection() {
                 <Compass className="w-4 h-4 text-nhk-accent" />
                 <span>Browse by Category</span>
               </Link>
-            </div>
-
-            {/* Micro Trust Indicators */}
-            <div className="pt-6 border-t border-nhk-beige/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 text-xs text-nhk-grey">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-nhk-accent" />
-                <span>Verified Affiliate Links</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span>Real Editorial Testing</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-nhk-charcoal" />
-                <span>Updated Weekly</span>
-              </div>
             </div>
           </div>
 

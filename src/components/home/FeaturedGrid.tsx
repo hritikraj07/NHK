@@ -74,7 +74,7 @@ export function FeaturedGrid() {
             href="/explore"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-nhk-beige hover:bg-nhk-charcoal text-nhk-charcoal hover:text-white font-medium text-sm transition-all shadow-sm border border-nhk-grey-border/60 group"
           >
-            <span>View All Verified Finds</span>
+            <span>Explore All Finds</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
