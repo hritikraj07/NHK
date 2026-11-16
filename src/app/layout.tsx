@@ -1,7 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#FAF9F6',
+};
 
 export const metadata: Metadata = {
   title: 'NHK — Discover Products Worth Loving | Curated Affiliate Discovery',
@@ -82,7 +89,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex flex-col min-h-full bg-[#FAF9F6] text-[#242424] antialiased selection:bg-[#EDE8DF]">
+      <body className="flex flex-col min-h-full bg-[#FAF9F6] text-[#242424] antialiased selection:bg-[#EDE8DF] overflow-x-hidden">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

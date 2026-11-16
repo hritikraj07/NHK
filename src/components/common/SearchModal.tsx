@@ -66,13 +66,14 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const popularSearches = ['Leather Tote', 'Wireless Earbuds', 'Travertine', 'Ceramic Carafe', 'Desk Setup', 'Skincare'];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-nhk-charcoal/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-3 sm:pt-20 px-3 sm:px-4 bg-nhk-charcoal/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div
-        className="w-full max-w-2xl bg-[#FAF9F6] rounded-2xl shadow-2xl border border-nhk-beige overflow-hidden flex flex-col max-h-[80vh]"
+        className="w-full max-w-2xl bg-[#FAF9F6] rounded-2xl sm:rounded-3xl shadow-2xl border border-nhk-beige overflow-hidden flex flex-col max-h-[88vh] sm:max-h-[80vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Header */}
-        <div className="flex items-center gap-3 px-6 py-4 border-b border-nhk-beige bg-white">
+        <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3.5 sm:py-4 border-b border-nhk-beige bg-white">
+          <Search className="w-4 h-4 text-nhk-grey flex-shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -84,21 +85,23 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="p-1 rounded-full text-nhk-grey hover:text-nhk-charcoal"
+              className="p-2 rounded-full text-nhk-grey hover:text-nhk-charcoal active:scale-95 transition-transform"
+              aria-label="Clear query"
             >
               <X className="w-4 h-4" />
             </button>
           )}
           <button
             onClick={onClose}
-            className="text-xs uppercase tracking-wider text-nhk-grey hover:text-nhk-charcoal px-2 py-1 rounded border border-nhk-beige ml-1"
+            className="text-xs uppercase tracking-wider text-nhk-grey hover:text-nhk-charcoal px-2.5 py-1.5 rounded-lg border border-nhk-beige bg-[#FAF9F6] ml-1 active:scale-95 transition-all font-semibold flex-shrink-0"
+            aria-label="Close search"
           >
-            ESC
+            Close
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="overflow-y-auto p-6 space-y-6">
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Results */}
           {results.length > 0 ? (
             <div>
