@@ -30,7 +30,7 @@ export function HeroSection() {
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg text-nhk-grey max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Discover thoughtfully curated products, trending finds, and everyday essentials. We filter through thousands of objects so you only buy what brings lasting utility and beauty.
+              Discover thoughtfully selected products, trending finds, and everyday essentials. We filter through thousands of objects so you only buy what brings lasting utility and beauty.
             </p>
 
             {/* Action Buttons */}

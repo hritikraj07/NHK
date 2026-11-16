@@ -68,7 +68,7 @@ export default function TermsPage() {
               <Link href="/contact" className="text-nhk-accent underline font-medium">
                 our contact desk
               </Link>{' '}
-              or emailed to <code>legal@nhkcurated.com</code>.
+              or emailed to <code>nhkhritxkk@gmail.com</code>.
             </p>
           </section>
         </div>

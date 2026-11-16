@@ -193,7 +193,7 @@ function ExploreContent() {
         {/* Results Counter */}
         <div className="flex items-center justify-between mb-6 text-xs text-nhk-grey px-1">
           <p>
-            Showing <strong className="text-nhk-charcoal">{filteredProducts.length}</strong> thoughtfully curated objects
+            Showing <strong className="text-nhk-charcoal">{filteredProducts.length}</strong> thoughtfully selected objects
           </p>
           {selectedCategory !== 'all' && (
             <p className="uppercase tracking-wider font-semibold text-nhk-accent">

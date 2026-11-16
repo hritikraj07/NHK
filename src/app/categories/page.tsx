@@ -6,7 +6,7 @@ import { getAllProducts } from '@/lib/products';
 import { ProductCard } from '@/components/products/ProductCard';
 
 export const metadata = {
-  title: 'Categories & Curated Edits — NHK',
+  title: 'Categories & Collections — NHK',
   description:
     'Browse our five core lifestyle departments: Fashion & Accessories, Tech & Gadgets, Home & Living, Beauty & Lifestyle, and Everyday Essentials.',
 };
@@ -21,7 +21,7 @@ export default function CategoriesPage() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-nhk-beige text-nhk-charcoal text-xs font-semibold uppercase tracking-wider">
             <Compass className="w-3.5 h-3.5 text-nhk-accent" />
-            <span>Curated Departments</span>
+            <span>Product Departments</span>
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-nhk-charcoal">
             Explore by Category
@@ -53,7 +53,7 @@ export default function CategoriesPage() {
                       </span>
                       <span className="text-xs text-nhk-grey">•</span>
                       <span className="text-xs text-nhk-grey font-medium">
-                        {category.featuredCount} Curated Objects
+                        {category.featuredCount} Featured Objects
                       </span>
                     </div>
 

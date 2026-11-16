@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Sparkles, ShieldCheck, Heart, Compass, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
-  title: 'About Our Curation — NHK',
+  title: 'About NHK — Discover Products Worth Loving',
   description:
     'Learn about NHK, our editorial philosophy, testing standards, and why we exist to help you discover products worth loving.',
 };
@@ -38,7 +38,7 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-nhk-charcoal/20" />
           <div className="absolute bottom-6 left-6 right-6 text-white text-xs sm:text-sm font-medium">
-            Studio NHK • Curating objects that elevate daily living since 2026.
+            Studio NHK • Sharing objects that elevate daily living since 2026.
           </div>
         </div>
 
@@ -98,10 +98,10 @@ export default function AboutPage() {
             We spent years navigating product reviews polluted by bot-written listicles, fake five-star customer feedback, and drop-shipped knockoffs flooding major marketplaces. It became nearly impossible to find honest, design-forward recommendations for simple things: a commuter tote that wouldn&apos;t fray, an incense holder that didn&apos;t spill ash, or an ultra-quiet mechanical keyboard suited for shared studios.
           </p>
           <p>
-            NHK was created to restore delight to product discovery. Our editors test and curate items across five essential categories: fashion, tech, home living, beauty rituals, and daily essentials.
+            NHK was created to restore delight to product discovery. Our editors test and select items across five essential categories: fashion, tech, home living, beauty rituals, and daily essentials.
           </p>
           <p>
-            We combine high-resolution visual curation tailored for Pinterest lovers with rigorous journalistic transparency. We hope every discovery you make here becomes a treasured part of your everyday life.
+            We combine high-resolution visual collections tailored for Pinterest lovers with rigorous journalistic transparency. We hope every discovery you make here becomes a treasured part of your everyday life.
           </p>
         </div>
 

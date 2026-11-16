@@ -103,7 +103,7 @@ export default function AffiliateDisclosurePage() {
               <Link href="/contact" className="text-nhk-accent underline font-medium">
                 contact page
               </Link>{' '}
-              or write to us at <code>editorial@nhkcurated.com</code>.
+              or write to us at <code>nhkhritxkk@gmail.com</code>.
             </p>
           </section>
         </div>

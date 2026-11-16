@@ -11,14 +11,14 @@ export function TrendingCollections() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-nhk-accent mb-2">
-              <span>Curated Edits</span>
+              <span>Featured Collections</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-nhk-charcoal">
               Trending Collections
             </h2>
           </div>
           <p className="text-sm text-nhk-grey max-w-md">
-            Explore curated departments tailored around mindful living, intentional craftsmanship, and modern aesthetics.
+            Explore departments tailored around mindful living, intentional craftsmanship, and modern aesthetics.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export function TrendingCollections() {
                 {/* Content Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white flex flex-col justify-end">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-nhk-beige mb-1">
-                    {category.featuredCount} Curated Finds
+                    {category.featuredCount} Featured Finds
                   </span>
                   <h3 className="font-serif text-xl font-bold leading-tight group-hover:text-amber-200 transition-colors">
                     {category.name}

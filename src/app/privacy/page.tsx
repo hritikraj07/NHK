@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
               4. Your Rights
             </h2>
             <p>
-              Depending on your location, you may have rights under data privacy laws (such as GDPR or CCPA) to access, correct, or request deletion of any personal information we hold. To exercise these rights, please email us at <code>privacy@nhkcurated.com</code>.
+              Depending on your location, you may have rights under data privacy laws (such as GDPR or CCPA) to access, correct, or request deletion of any personal information we hold. To exercise these rights, please email us at <code>nhkhritxkk@gmail.com</code>.
             </p>
           </section>
         </div>

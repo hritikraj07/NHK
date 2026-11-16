@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Send, CheckCircle2, AlertCircle, MessageSquare, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import { Mail, Send, CheckCircle2, AlertCircle, ArrowUpRight } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-sm sm:text-base text-nhk-grey leading-relaxed">
-            Have a question about a product recommendation, an idea for our curation desk, or brand inquiry? We&apos;d love to hear from you.
+            Have a question about a product recommendation, an idea for our review desk, or brand inquiry? We&apos;d love to hear from you.
           </p>
         </div>
 
@@ -189,45 +190,39 @@ export default function ContactPage() {
                 Direct Channels
               </h3>
 
-              <div className="space-y-4 text-sm">
+              <div className="space-y-5 text-sm">
                 <div>
-                  <span className="text-xs uppercase font-bold text-nhk-accent block">
-                    Editorial Desk
+                  <span className="text-xs uppercase font-bold text-nhk-accent block mb-1">
+                    Contact Email
                   </span>
                   <a
-                    href="mailto:editorial@nhkcurated.com"
+                    href="mailto:nhkhritxkk@gmail.com"
                     className="text-nhk-charcoal font-medium hover:underline text-base"
                   >
-                    editorial@nhkcurated.com
+                    nhkhritxkk@gmail.com
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-xs uppercase font-bold text-nhk-accent block">
-                    Commercial & Partnerships
-                  </span>
-                  <a
-                    href="mailto:partnerships@nhkcurated.com"
-                    className="text-nhk-charcoal font-medium hover:underline text-base"
-                  >
-                    partnerships@nhkcurated.com
-                  </a>
-                </div>
-
-                <div>
-                  <span className="text-xs uppercase font-bold text-nhk-accent block">
+                  <span className="text-xs uppercase font-bold text-nhk-accent block mb-2">
                     Social Discovery
                   </span>
-                  <div className="pt-2 flex flex-col gap-2">
-                    <a
-                      href="https://in.pinterest.com/nhkhritxkk/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline"
-                    >
-                      Follow @nhkhritxkk on Pinterest <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
+                  <a
+                    href="https://in.pinterest.com/nhkhritxkk/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-nhk-grey-border text-xs font-semibold text-nhk-charcoal hover:bg-red-50 hover:border-red-200 transition-all shadow-sm"
+                  >
+                    <Image
+                      src="/pinterest-logo.png"
+                      alt="Pinterest"
+                      width={20}
+                      height={20}
+                      className="rounded-full object-contain"
+                    />
+                    <span>Follow @nhkhritxkk on Pinterest</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-red-600" />
+                  </a>
                 </div>
               </div>
             </div>

@@ -238,12 +238,12 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-            {/* Curator Recommendation Callout */}
+            {/* Editor Recommendation Callout */}
             {product.curatorNote && (
               <div className="p-5 rounded-2xl bg-[#EDE8DF]/60 border border-nhk-beige space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-nhk-accent uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Curator&apos;s Field Note</span>
+                  <span>Editor&apos;s Recommendation</span>
                 </div>
                 <p className="text-xs sm:text-sm text-nhk-charcoal italic leading-relaxed">
                   &ldquo;{product.curatorNote}&rdquo;
@@ -365,7 +365,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                   More in {product.category}
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-nhk-charcoal">
-                  Related Curations
+                  Related Products
                 </h3>
               </div>
               <Link

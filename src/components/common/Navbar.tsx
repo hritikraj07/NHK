@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Search, Menu, X, Compass, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Compass, ArrowUpRight } from 'lucide-react';
 import { Logo } from './Logo';
 import { SearchModal } from './SearchModal';
 
@@ -44,7 +45,7 @@ export function Navbar() {
       >
         {/* Top Micro-Bar for Pinterest Announcement & Editorial Note */}
         <div className="bg-[#EDE8DF] text-[11px] tracking-wider uppercase font-medium text-nhk-charcoal/80 py-1.5 px-4 text-center border-b border-nhk-grey-border/40 flex items-center justify-center gap-3">
-          <span>Curated Finds for Mindful Living</span>
+          <span>Thoughtful Finds for Mindful Living</span>
           <span className="hidden sm:inline text-nhk-grey">•</span>
           <a
             href="https://in.pinterest.com/nhkhritxkk/"
@@ -91,16 +92,13 @@ export function Navbar() {
 
             {/* Right Action Icons */}
             <div className="flex items-center gap-2 sm:gap-4 flex-1 md:flex-initial justify-end">
-              {/* Search Trigger (no search icon, wider bar) */}
+              {/* Search Trigger (no icon, no command K, clean input style) */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center justify-between w-full sm:w-56 md:w-64 lg:w-72 px-4 py-2 rounded-full border border-nhk-grey-border/80 text-nhk-grey hover:text-nhk-charcoal hover:border-nhk-charcoal bg-white/80 transition-all text-xs shadow-sm"
+                className="flex items-center w-full sm:w-56 md:w-64 lg:w-72 px-4 py-2 rounded-full border border-nhk-grey-border/80 text-nhk-grey hover:text-nhk-charcoal hover:border-nhk-charcoal bg-white/80 transition-all text-xs shadow-sm"
                 aria-label="Open search dialog"
               >
                 <span className="truncate text-nhk-grey/90">Search products, collections...</span>
-                <kbd className="hidden sm:inline text-[10px] bg-nhk-beige px-1.5 py-0.5 rounded text-nhk-grey font-mono ml-2 flex-shrink-0">
-                  ⌘K
-                </kbd>
               </button>
 
               {/* Pinterest Profile Direct Button */}
@@ -109,12 +107,16 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="NHK on Pinterest"
-                className="p-2 rounded-full border border-nhk-grey-border bg-white text-red-600 hover:bg-red-50 hover:border-red-200 transition-all flex-shrink-0"
+                className="w-9 h-9 rounded-full border border-nhk-grey-border bg-white hover:scale-105 transition-all flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm"
                 aria-label="Follow NHK on Pinterest"
               >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 0a12 12 0 0 0-4.37 23.18c-.07-.98-.13-2.48.03-3.55.15-.97 1-4.22 1-4.22s-.25-.52-.25-1.28c0-1.2.7-2.1 1.57-2.1.74 0 1.1.56 1.1 1.23 0 .75-.48 1.86-.72 2.9-.2.87.43 1.58 1.3 1.58 1.56 0 2.76-1.64 2.76-4.02 0-2.1-1.5-3.57-3.66-3.57-2.5 0-3.96 1.87-3.96 3.8 0 .75.29 1.56.65 2 .07.09.08.17.06.26l-.24 1c-.04.16-.14.2-.32.11-1.18-.55-1.92-2.28-1.92-3.66 0-2.98 2.16-5.72 6.25-5.72 3.28 0 5.83 2.34 5.83 5.46 0 3.26-2.05 5.88-4.9 5.88-.96 0-1.86-.5-2.17-1.09l-.59 2.25c-.21.83-.8 1.86-1.19 2.51A12.02 12.02 0 1 0 12 0z" />
-                </svg>
+                <Image
+                  src="/pinterest-logo.png"
+                  alt="Pinterest"
+                  width={24}
+                  height={24}
+                  className="rounded-full object-contain"
+                />
               </a>
 
               {/* Mobile Menu Hamburger */}
@@ -158,12 +160,6 @@ export function Navbar() {
                   className="w-full py-3 rounded-full bg-nhk-charcoal text-white text-center text-sm font-medium hover:bg-nhk-charcoal-dark flex items-center justify-center gap-2"
                 >
                   <Compass className="w-4 h-4" /> Start Exploring
-                </Link>
-                <Link
-                  href="/admin"
-                  className="text-center text-xs text-nhk-grey hover:text-nhk-charcoal py-1"
-                >
-                  Product Management (Admin)
                 </Link>
               </div>
             </div>

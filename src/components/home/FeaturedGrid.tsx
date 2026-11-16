@@ -7,7 +7,7 @@ import { ProductCard } from '@/components/products/ProductCard';
 import { useProducts } from '@/hooks/useProducts';
 
 const FILTER_TABS = [
-  { id: 'all', label: 'All Curated' },
+  { id: 'all', label: 'All Finds' },
   { id: 'fashion', label: 'Fashion' },
   { id: 'tech', label: 'Tech' },
   { id: 'home', label: 'Home' },
