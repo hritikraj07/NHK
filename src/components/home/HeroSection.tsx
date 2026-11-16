@@ -74,13 +74,13 @@ export function HeroSection() {
               {/* Primary Main Vertical Image Card */}
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-nhk-beige">
                 <Image
-                  src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1200&q=85"
-                  alt="Curated Italian leather minimalist tote"
+                  src="/van-gogh-irises-metal-bookmark.jpg"
+                  alt="Van Gogh Irises Vintage Metal Bookmark"
                   fill
                   priority
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-nhk-charcoal/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-nhk-charcoal/80 via-transparent to-transparent" />
                 
                 {/* Overlay Badge */}
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
@@ -88,10 +88,10 @@ export function HeroSection() {
                     Featured Discovery
                   </span>
                   <h3 className="font-serif text-xl font-bold">
-                    Atelier Minimalist Tuscan Tote
+                    Van Gogh Irises Vintage Metal Bookmark
                   </h3>
                   <p className="text-xs text-white/80 line-clamp-1">
-                    Full-grain Italian leather with hand-finished raw suede interior.
+                    Exquisite hollow brass with vibrant blue enamel and silk tassel.
                   </p>
                 </div>
               </div>
