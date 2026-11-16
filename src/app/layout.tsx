@@ -47,6 +47,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -57,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         {/* Schema.org Organization Structured Data */}
         <script
           type="application/ld+json"
@@ -69,8 +75,7 @@ export default function RootLayout({
               url: 'https://nhkcurated.com',
               logo: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=500&q=80',
               sameAs: [
-                'https://pinterest.com',
-                'https://instagram.com',
+                'https://in.pinterest.com/nhkhritxkk/',
               ],
               description: 'Independent product discovery brand curating products worth loving.',
             }),

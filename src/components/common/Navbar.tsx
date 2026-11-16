@@ -47,7 +47,7 @@ export function Navbar() {
           <span>Curated Finds for Mindful Living</span>
           <span className="hidden sm:inline text-nhk-grey">•</span>
           <a
-            href="https://pinterest.com"
+            href="https://in.pinterest.com/nhkhritxkk/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 hover:text-nhk-accent transition-colors font-semibold"
@@ -57,14 +57,14 @@ export function Navbar() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-20 gap-4">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               <Logo size="md" showTagline />
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8 flex-shrink-0">
               {NAV_LINKS.map((link) => {
                 const isActive =
                   link.href === '/'
@@ -90,27 +90,26 @@ export function Navbar() {
             </nav>
 
             {/* Right Action Icons */}
-            <div className="flex items-center gap-2 sm:gap-4">
-              {/* Search Trigger */}
+            <div className="flex items-center gap-2 sm:gap-4 flex-1 md:flex-initial justify-end">
+              {/* Search Trigger (no search icon, wider bar) */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="flex items-center gap-2 px-3 py-2 rounded-full border border-nhk-grey-border/80 text-nhk-grey hover:text-nhk-charcoal hover:border-nhk-charcoal bg-white/70 transition-all text-xs"
+                className="flex items-center justify-between w-full sm:w-56 md:w-64 lg:w-72 px-4 py-2 rounded-full border border-nhk-grey-border/80 text-nhk-grey hover:text-nhk-charcoal hover:border-nhk-charcoal bg-white/80 transition-all text-xs shadow-sm"
                 aria-label="Open search dialog"
               >
-                <Search className="w-4 h-4 text-nhk-charcoal" />
-                <span className="hidden sm:inline text-nhk-grey">Search...</span>
-                <kbd className="hidden lg:inline text-[10px] bg-nhk-beige px-1.5 py-0.5 rounded text-nhk-grey">
+                <span className="truncate text-nhk-grey/90">Search products, collections...</span>
+                <kbd className="hidden sm:inline text-[10px] bg-nhk-beige px-1.5 py-0.5 rounded text-nhk-grey font-mono ml-2 flex-shrink-0">
                   ⌘K
                 </kbd>
               </button>
 
               {/* Pinterest Profile Direct Button */}
               <a
-                href="https://pinterest.com"
+                href="https://in.pinterest.com/nhkhritxkk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="NHK on Pinterest"
-                className="p-2 rounded-full border border-nhk-grey-border bg-white text-red-600 hover:bg-red-50 hover:border-red-200 transition-all"
+                className="p-2 rounded-full border border-nhk-grey-border bg-white text-red-600 hover:bg-red-50 hover:border-red-200 transition-all flex-shrink-0"
                 aria-label="Follow NHK on Pinterest"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

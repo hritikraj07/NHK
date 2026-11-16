@@ -20,7 +20,7 @@ export function EditorsPicks() {
             <span>Honest Evaluation</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-bold text-nhk-charcoal">
-            Editor&apos;s Notebook
+            Editor&apos;s Picks
           </h2>
           <p className="text-sm sm:text-base text-nhk-grey">
             Every piece below has been examined by our editorial desk for build quality, tactile satisfaction, and real-world durability.

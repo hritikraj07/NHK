@@ -210,8 +210,8 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                     Availability
                   </span>
                   <span className="text-sm font-semibold text-emerald-700 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    In Stock on Amazon
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                    Available on Amazon
                   </span>
                 </div>
 
@@ -235,14 +235,6 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                   <span>Check Price on {product.merchant}</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
-              </div>
-
-              {/* Immediate In-Box Affiliate Disclosure */}
-              <div className="pt-2 border-t border-nhk-beige text-[11px] text-nhk-grey leading-relaxed flex items-start gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-nhk-accent flex-shrink-0 mt-0.5" />
-                <span>
-                  <strong>Affiliate Transparency:</strong> When you purchase through this link, NHK may receive a verified merchant referral fee at zero extra charge to you. Pricing and availability subject to change.
-                </span>
               </div>
             </div>
 

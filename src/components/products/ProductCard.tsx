@@ -26,8 +26,8 @@ export function ProductCard({
     aspect === 'vertical'
       ? 'aspect-[2/3]'
       : aspect === 'tall'
-      ? 'aspect-[3/4]'
-      : 'aspect-square';
+        ? 'aspect-[3/4]'
+        : 'aspect-square';
 
   return (
     <article className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-nhk-grey-border/70 hover:border-nhk-grey-border shadow-card hover:shadow-card-hover transition-all duration-300 transform-gpu hover:-translate-y-1">
@@ -44,9 +44,8 @@ export function ProductCard({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={priority}
-            className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
             onLoad={() => setImageLoaded(true)}
           />
         </Link>

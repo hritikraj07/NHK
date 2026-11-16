@@ -73,7 +73,6 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
       >
         {/* Search Header */}
         <div className="flex items-center gap-3 px-6 py-4 border-b border-nhk-beige bg-white">
-          <Search className="w-5 h-5 text-nhk-grey flex-shrink-0" />
           <input
             ref={inputRef}
             type="text"

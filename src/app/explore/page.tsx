@@ -113,13 +113,12 @@ function ExploreContent() {
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative flex-1">
-              <Search className="w-4 h-4 text-nhk-grey absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by product, material, or brand..."
-                className="w-full pl-11 pr-10 py-2.5 rounded-full bg-nhk-beige/50 border border-nhk-grey-border text-sm text-nhk-charcoal placeholder-nhk-grey focus:outline-none focus:ring-2 focus:ring-nhk-charcoal/20 transition-all"
+                placeholder="Search products, materials, brands..."
+                className="w-full px-5 py-2.5 rounded-full bg-nhk-beige/50 border border-nhk-grey-border text-sm text-nhk-charcoal placeholder-nhk-grey focus:outline-none focus:ring-2 focus:ring-nhk-charcoal/20 transition-all"
               />
               {searchQuery && (
                 <button

@@ -110,12 +110,6 @@ export function HeroSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Floating Top-Right Mini Badge */}
-              <div className="absolute -top-4 -right-4 bg-nhk-charcoal text-white text-xs px-3.5 py-1.5 rounded-full shadow-lg font-medium flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Verified Deal</span>
-              </div>
             </div>
           </div>
         </div>

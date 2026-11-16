@@ -220,20 +220,12 @@ export default function ContactPage() {
                   </span>
                   <div className="pt-2 flex flex-col gap-2">
                     <a
-                      href="https://pinterest.com"
+                      href="https://in.pinterest.com/nhkhritxkk/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-red-600 font-semibold hover:underline"
                     >
-                      Follow @NHKCurated on Pinterest <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-nhk-charcoal font-medium hover:underline"
-                    >
-                      Follow @NHKCurated on Instagram <ArrowUpRight className="w-3.5 h-3.5" />
+                      Follow @nhkhritxkk on Pinterest <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
