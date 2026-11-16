@@ -75,7 +75,7 @@ export function HeroSection() {
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-nhk-beige">
                 <Image
                   src="/van-gogh-irises-metal-bookmark.jpg"
-                  alt="Van Gogh Irises Vintage Metal Bookmark"
+                  alt="FunBlast Metal Bookmark with Tassel – Vintage Flower Theme"
                   fill
                   priority
                   className="object-cover"
@@ -88,10 +88,10 @@ export function HeroSection() {
                     Featured Discovery
                   </span>
                   <h3 className="font-serif text-xl font-bold">
-                    Van Gogh Irises Vintage Metal Bookmark
+                    FunBlast Metal Bookmark with Tassel – Vintage Flower Theme
                   </h3>
                   <p className="text-xs text-white/80 line-clamp-1">
-                    Exquisite hollow brass with vibrant blue enamel and silk tassel.
+                    Exquisite hollow brass with vibrant floral enamel and silk tassel.
                   </p>
                 </div>
               </div>

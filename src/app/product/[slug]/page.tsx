@@ -202,32 +202,21 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
               </p>
             </div>
 
-            {/* Verified Price & Retailer Card */}
+            {/* Verified Retailer & Affiliate Card */}
             <div className="p-6 rounded-2xl bg-white border border-nhk-grey-border shadow-sm space-y-5">
-              <div className="flex items-baseline justify-between">
+              <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs uppercase font-semibold text-nhk-grey block mb-1">
-                    Verified Retail Price
+                    Availability
                   </span>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-3xl font-bold text-nhk-charcoal font-serif">
-                      ${product.price}
-                    </span>
-                    {product.originalPrice && product.originalPrice > product.price && (
-                      <span className="text-sm text-nhk-grey line-through">
-                        ${product.originalPrice}
-                      </span>
-                    )}
-                    {product.originalPrice && product.originalPrice > product.price && (
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        Save ${(product.originalPrice - product.price).toFixed(0)}
-                      </span>
-                    )}
-                  </div>
+                  <span className="text-sm font-semibold text-emerald-700 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    In Stock on Amazon
+                  </span>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs text-nhk-grey block">Available at</span>
+                  <span className="text-xs text-nhk-grey block">Retail Partner</span>
                   <span className="text-sm font-semibold text-nhk-charcoal flex items-center gap-1 justify-end">
                     <Store className="w-3.5 h-3.5 text-nhk-accent" />
                     {product.merchant}
@@ -243,7 +232,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                   rel="sponsored nofollow noopener noreferrer"
                   className="w-full py-4 px-6 rounded-full bg-nhk-charcoal hover:bg-nhk-accent text-white font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group"
                 >
-                  <span>Check Price / View at {product.merchant}</span>
+                  <span>Check Price on {product.merchant}</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>

@@ -112,14 +112,22 @@ export function ProductCard({
 
         {/* Price & Action Section */}
         <div className="pt-3 border-t border-nhk-beige/80 flex items-center justify-between gap-3">
-          {/* Price */}
+          {/* Price (Only when greater than 0) */}
           <div className="flex items-baseline gap-2">
-            <span className="text-base font-bold text-nhk-charcoal">
-              ${product.price}
-            </span>
-            {product.originalPrice && product.originalPrice > product.price && (
-              <span className="text-xs text-nhk-grey line-through">
-                ${product.originalPrice}
+            {product.price > 0 ? (
+              <>
+                <span className="text-base font-bold text-nhk-charcoal">
+                  ${product.price}
+                </span>
+                {product.originalPrice && product.originalPrice > product.price && (
+                  <span className="text-xs text-nhk-grey line-through">
+                    ${product.originalPrice}
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="text-xs font-medium text-nhk-accent">
+                Check Live Price
               </span>
             )}
           </div>

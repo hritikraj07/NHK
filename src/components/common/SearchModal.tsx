@@ -135,8 +135,8 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       <p className="text-xs text-nhk-grey truncate">{product.tagline}</p>
                     </div>
                     <div className="text-right flex-shrink-0 flex items-center gap-2">
-                      <span className="text-sm font-semibold text-nhk-charcoal">
-                        ${product.price}
+                      <span className="text-xs font-semibold text-nhk-accent">
+                        View
                       </span>
                       <ArrowRight className="w-4 h-4 text-nhk-grey group-hover:text-nhk-accent group-hover:translate-x-1 transition-all" />
                     </div>

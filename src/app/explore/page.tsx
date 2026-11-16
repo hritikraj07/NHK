@@ -131,23 +131,8 @@ function ExploreContent() {
               )}
             </div>
 
-            {/* Sorting & Price Controls */}
+            {/* Sorting & Controls */}
             <div className="flex flex-wrap items-center gap-3">
-              {/* Price Filter */}
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs text-nhk-grey font-medium">Price:</span>
-                <select
-                  value={priceFilter}
-                  onChange={(e) => setPriceFilter(e.target.value as any)}
-                  className="px-3 py-2 rounded-full bg-nhk-beige/60 border border-nhk-grey-border text-xs text-nhk-charcoal font-medium focus:outline-none cursor-pointer"
-                >
-                  <option value="all">Any Price</option>
-                  <option value="under50">Under $50</option>
-                  <option value="under100">Under $100</option>
-                  <option value="100plus">$100 and above</option>
-                </select>
-              </div>
-
               {/* Sort By */}
               <div className="flex items-center gap-1.5">
                 <ArrowUpDown className="w-3.5 h-3.5 text-nhk-grey" />
@@ -158,8 +143,6 @@ function ExploreContent() {
                 >
                   <option value="featured">Featured First</option>
                   <option value="rating">Highest Rated</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
                   <option value="newest">Recently Added</option>
                 </select>
               </div>

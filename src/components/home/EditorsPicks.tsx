@@ -64,8 +64,8 @@ export function EditorsPicks() {
                     <span className="text-xs font-semibold text-nhk-grey">
                       Verified {product.verifiedDate}
                     </span>
-                    <span className="text-base font-bold text-nhk-charcoal">
-                      ${product.price}
+                    <span className="text-xs font-semibold text-nhk-accent">
+                      Available via {product.merchant}
                     </span>
                   </div>
 
