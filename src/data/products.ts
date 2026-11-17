@@ -56,9 +56,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'fashion',
     merchant: 'Amazon',
     affiliateUrl: 'https://link.amazon/B0ajof6aR',
-    primaryImage: '/wear-lusso-men-knitted-sweater.jpg',
+    primaryImage: 'https://files.catbox.moe/jvg2wn.jpg',
     images: [
-      '/wear-lusso-men-knitted-sweater.jpg',
+      'https://files.catbox.moe/jvg2wn.jpg',
     ],
     features: [
       'Full-sleeve textured knit with modern color-block styling',
