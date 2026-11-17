@@ -8,7 +8,7 @@ export const CATEGORIES: Category[] = [
     tagline: 'Timeless silhouettes, heirloom accessories, and tactile materials.',
     description: 'Elevated staples selected for longevity, effortless styling, and quiet craftsmanship.',
     image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80',
-    featuredCount: 0,
+    featuredCount: 1,
   },
   {
     id: 'tech',
