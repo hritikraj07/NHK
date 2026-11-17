@@ -28,7 +28,7 @@ export function PinterestMasonry({
           <ProductCard
             product={product}
             priority={idx < 4}
-            aspect={idx % 3 === 0 ? 'vertical' : idx % 2 === 0 ? 'tall' : 'square'}
+            aspect="square"
           />
         </div>
       ))}

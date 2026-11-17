@@ -94,7 +94,7 @@ export default function CategoriesPage() {
                       <ProductCard
                         key={product.id}
                         product={product}
-                        aspect="tall"
+                        aspect="square"
                       />
                     ))}
                   </div>

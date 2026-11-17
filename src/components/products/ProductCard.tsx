@@ -17,7 +17,7 @@ interface ProductCardProps {
 export function ProductCard({
   product,
   priority = false,
-  aspect = 'vertical',
+  aspect = 'square',
   showMerchant = true,
 }: ProductCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -30,7 +30,7 @@ export function ProductCard({
         : 'aspect-square';
 
   return (
-    <article className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-nhk-grey-border/70 hover:border-nhk-grey-border shadow-card hover:shadow-card-hover transition-all duration-300 transform-gpu hover:-translate-y-1">
+    <article className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-nhk-grey-border/70 hover:border-nhk-grey-border shadow-card hover:shadow-card-hover transition-all duration-300 transform-gpu hover:-translate-y-1 h-full">
       {/* Image Container with Hover Controls */}
       <div className={`relative w-full ${aspectClass} overflow-hidden bg-nhk-beige`}>
         <Link

@@ -378,7 +378,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {related.map((rel) => (
-                <ProductCard key={rel.id} product={rel} aspect="tall" />
+                <ProductCard key={rel.id} product={rel} aspect="square" />
               ))}
             </div>
           </div>

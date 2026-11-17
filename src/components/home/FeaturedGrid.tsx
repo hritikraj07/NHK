@@ -63,7 +63,7 @@ export function FeaturedGrid() {
               key={product.id}
               product={product}
               priority={idx < 3}
-              aspect="tall"
+              aspect="square"
             />
           ))}
         </div>
