@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { createPortal } from "react-dom";
+import { useRouter } from "next/navigation";
 
 export type GarmentKind = "tee" | "knit" | "hoodie" | "shirt" | "jacket" | "coat";
 
@@ -26,6 +27,8 @@ export interface RailGarment {
   tag?: string;
   /** Short facts listed in the detail view. */
   details?: string[];
+  /** Optional destination route when clicked. */
+  href?: string;
 }
 
 export interface ClothingRailHeroLabels {
@@ -536,6 +539,7 @@ export function ClothingRailHero({
   className,
   ...rest
 }: ClothingRailHeroProps) {
+  const router = useRouter();
   const uid = React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const count = items.length;
   const stageRef = React.useRef(null as HTMLDivElement | null);
@@ -854,12 +858,10 @@ export function ClothingRailHero({
     if (event.pointerType !== "mouse" || live.current.size.carousel || live.current.openIndex !== null) return;
     const hit = nearest(event.clientX, event.clientY);
     const current = live.current.active;
-    if (current !== null && hit !== current) {
-      const box = stage?.getBoundingClientRect();
-      const keep = box ? Math.abs(event.clientX - box.left - (s.x[current] ?? 0)) < footprint(live.current.size.h, 0) / 2 + 14 : false;
-      if (keep && (hit === null || Math.abs(event.clientY - (box?.top ?? 0)) < live.current.size.h + 40)) return;
+    if (hit !== null && hit !== current) {
+      stop();
+      choose(hit);
     }
-    if (hit !== null) { stop(); choose(hit); }
   };
 
   const onPointerDown = (event: React.PointerEvent) => {
@@ -983,7 +985,18 @@ export function ClothingRailHero({
               className="absolute left-0 cursor-pointer rounded-xl outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
               style={{ top: railY - (HOOK_TOP / VB_H) * h, width: boxW, height: h, zIndex: turned ? 30 : 10 + i, visibility: lifted === i ? "hidden" : undefined, transform: `translate3d(${((sim.current.x[i] ?? 0) - boxW / 2).toFixed(2)}px,0,0)` }}
               onFocus={() => { setFocusIndex(i); if (pointer.current.id < 0) { stop(); choose(i); } }}
-              onClick={(event) => { const pending = pendingOpen.current; pendingOpen.current = -1; if (event.detail === 0 || pending === i) open(i); }}
+              onMouseEnter={() => { if (pointer.current.id < 0 && !size.carousel) { stop(); choose(i); } }}
+              onClick={(event) => {
+                const pending = pendingOpen.current;
+                pendingOpen.current = -1;
+                if (event.detail === 0 || pending === i) {
+                  if (item.href) {
+                    router.push(item.href);
+                  } else {
+                    open(i);
+                  }
+                }
+              }}
             >
               <span ref={(node) => { swings.current[i] = node; }} className="absolute inset-0" style={{ transformOrigin: `50% ${(HOOK_TOP / VB_H) * 100}%` }}>
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ filter: `blur(${Math.max(3, h * 0.022).toFixed(1)}px)` }}>
@@ -1033,10 +1046,35 @@ export function ClothingRailHero({
 
       <div className="relative z-10 flex flex-col items-center gap-4 px-6 pb-8 pt-4 text-center">
         <div id={`${uid}-caption`} aria-live="polite" className="min-h-[3.25rem]">
-          <p key={current?.id ?? "caption"} className="animate-in fade-in text-sm font-medium [animation-duration:300ms] motion-reduce:animate-none">{current ? current.name : caption}</p>
+          <p key={current?.id ?? "caption"} className="animate-in fade-in text-sm font-medium [animation-duration:300ms] motion-reduce:animate-none">
+            {current ? (
+              current.href ? (
+                <button
+                  type="button"
+                  onClick={() => router.push(current.href!)}
+                  className="transition-colors hover:text-nhk-accent cursor-pointer underline-offset-4 hover:underline"
+                >
+                  {current.name}
+                </button>
+              ) : (
+                current.name
+              )
+            ) : (
+              caption
+            )}
+          </p>
           {current?.description && <p key={`${current.id}-d`} className="mx-auto mt-1 max-w-[42ch] text-[13px] leading-relaxed text-muted-foreground">{current.description}</p>}
         </div>
-        {action}
+        {current?.href ? (
+          <button
+            type="button"
+            onClick={() => router.push(current.href!)}
+            className="inline-flex items-center gap-2 rounded-full bg-nhk-charcoal px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-nhk-bg shadow-sm transition-all duration-300 hover:bg-nhk-accent hover:shadow-md cursor-pointer"
+          >
+            <span>View {current.name}</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        ) : action}
       </div>
 
       {openIndex !== null && items[openIndex] && (

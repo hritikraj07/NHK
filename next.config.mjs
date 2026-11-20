@@ -22,6 +22,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'files.catbox.moe',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.21st.dev',
+      },
     ],
   },
 };
