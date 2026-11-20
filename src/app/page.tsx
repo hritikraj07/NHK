@@ -18,7 +18,8 @@ const FEATURED_RAIL_GARMENTS: RailGarment[] = [
       'Smooth Full-Zip Front Closure',
       'Tailored Regular Fit Silhouette',
     ],
-    image: 'https://files.catbox.moe/ul526y.png',
+    image: 'https://files.catbox.moe/vd5jw3.png',
+    sideImage: 'https://files.catbox.moe/co0c55.webp',
     href: '/product/mens-classic-collared-leather-jacket',
   },
   {
@@ -33,7 +34,8 @@ const FEATURED_RAIL_GARMENTS: RailGarment[] = [
       'Modern Color-Block Styling',
       'Warm Cold-Weather Layering',
     ],
-    image: 'https://files.catbox.moe/9slrbv.png',
+    image: 'https://files.catbox.moe/4n72m3.png',
+    sideImage: 'https://files.catbox.moe/inlm58.webp',
     href: '/product/wear-lusso-mens-knitted-sweater',
   },
 ];
@@ -44,7 +46,7 @@ export default function HomePage() {
       <HeroSection />
       <ClothingRailHero
         items={FEATURED_RAIL_GARMENTS}
-        hanger="wood"
+        hanger="none"
         eyebrow="Interactive Wardrobe Rail · Curated Selection"
         heading="Tactile Discovery on the Rail"
         caption="Hover along the rail to turn pieces forward, or click any piece to explore full editorial specifications."

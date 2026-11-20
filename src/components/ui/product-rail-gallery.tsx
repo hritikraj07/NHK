@@ -504,7 +504,14 @@ function SideArt({ uid, kind, color, trim }: { uid: string; kind: GarmentKind; c
 }
 
 function Photo({ src, alt, full }: { src: string; alt: string; full: boolean }) {
-  return <img src={src} alt={alt} draggable={false} className={`pointer-events-none absolute inset-x-0 bottom-0 size-auto w-full select-none object-contain object-top ${full ? "top-0 h-full" : "top-[8%] h-[92%]"}`} />;
+  return (
+    <img
+      src={src}
+      alt={alt}
+      draggable={false}
+      className={`pointer-events-none absolute inset-x-0 bottom-0 size-auto w-full select-none object-contain object-top drop-shadow-[0_14px_22px_rgba(0,0,0,0.2)] ${full ? "top-0 h-full" : "top-[8%] h-[92%]"}`}
+    />
+  );
 }
 
 type Sim = {
@@ -556,6 +563,7 @@ export function ClothingRailHero({
   const [active, setActive] = React.useState(null as number | null);
   const [focusIndex, setFocusIndex] = React.useState(0);
   const [openIndex, setOpenIndex] = React.useState(null as number | null);
+  const [navigatingIndex, setNavigatingIndex] = React.useState(null as number | null);
   const [reduced, setReduced] = React.useState(false);
   const [playing, setPlaying] = React.useState(autoplay);
   const [lifted, setLifted] = React.useState(null as number | null);
@@ -567,6 +575,18 @@ export function ClothingRailHero({
   live.current = { ...live.current, active, size, reduced, count, openIndex, sideWidths };
 
   const carouselIndex = size.carousel ? (active ?? live.current.carouselIndex) : null;
+
+  React.useEffect(() => {
+    items.forEach((item) => {
+      if (item.href) {
+        try {
+          router.prefetch(item.href);
+        } catch {
+          // prefetch fallback
+        }
+      }
+    });
+  }, [items, router]);
 
   React.useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -971,6 +991,7 @@ export function ClothingRailHero({
           const turned = active === i;
           const mask = item.image ? `url("${item.image}")` : silhouetteMask(kind, "front");
           const photoBox = hanger === "none" ? "inset-0" : "inset-x-0 bottom-0 top-[8%]";
+          const isNavigating = navigatingIndex === i;
           return (
             <button
               key={item.id}
@@ -982,15 +1003,35 @@ export function ClothingRailHero({
               aria-label={item.name}
               aria-describedby={`${uid}-caption`}
               aria-pressed={turned}
-              className="absolute left-0 cursor-pointer rounded-xl outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-              style={{ top: railY - (HOOK_TOP / VB_H) * h, width: boxW, height: h, zIndex: turned ? 30 : 10 + i, visibility: lifted === i ? "hidden" : undefined, transform: `translate3d(${((sim.current.x[i] ?? 0) - boxW / 2).toFixed(2)}px,0,0)` }}
-              onFocus={() => { setFocusIndex(i); if (pointer.current.id < 0) { stop(); choose(i); } }}
-              onMouseEnter={() => { if (pointer.current.id < 0 && !size.carousel) { stop(); choose(i); } }}
+              className={`absolute left-0 cursor-pointer rounded-xl outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring transition-transform ${isNavigating ? "duration-300 ease-out" : ""}`}
+              style={{
+                top: railY - (HOOK_TOP / VB_H) * h,
+                width: boxW,
+                height: h,
+                zIndex: isNavigating ? 40 : turned ? 30 : 10 + i,
+                visibility: lifted === i ? "hidden" : undefined,
+                transform: `translate3d(${((sim.current.x[i] ?? 0) - boxW / 2).toFixed(2)}px, ${isNavigating ? -36 : 0}px, 0) scale(${isNavigating ? 1.06 : 1})`,
+                filter: isNavigating ? "drop-shadow(0 20px 25px rgba(0,0,0,0.3))" : undefined,
+              }}
+              onFocus={() => {
+                setFocusIndex(i);
+                if (item.href) {
+                  try { router.prefetch(item.href); } catch {}
+                }
+                if (pointer.current.id < 0) { stop(); choose(i); }
+              }}
+              onMouseEnter={() => {
+                if (item.href) {
+                  try { router.prefetch(item.href); } catch {}
+                }
+                if (pointer.current.id < 0 && !size.carousel) { stop(); choose(i); }
+              }}
               onClick={(event) => {
                 const pending = pendingOpen.current;
                 pendingOpen.current = -1;
                 if (event.detail === 0 || pending === i) {
                   if (item.href) {
+                    setNavigatingIndex(i);
                     router.push(item.href);
                   } else {
                     open(i);
@@ -998,6 +1039,11 @@ export function ClothingRailHero({
                 }
               }}
             >
+              {isNavigating && (
+                <span className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-nhk-charcoal px-4 py-1.5 text-[11px] font-semibold tracking-wider text-nhk-bg shadow-xl animate-in fade-in zoom-in-95 duration-200">
+                  Opening product &rarr;
+                </span>
+              )}
               <span ref={(node) => { swings.current[i] = node; }} className="absolute inset-0" style={{ transformOrigin: `50% ${(HOOK_TOP / VB_H) * 100}%` }}>
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ filter: `blur(${Math.max(3, h * 0.022).toFixed(1)}px)` }}>
                   <span ref={(node) => { shadows.current[i] = node; }} className={`absolute block bg-black opacity-[0.16] dark:opacity-60 ${item.image ? photoBox : "inset-0"}`} style={{ WebkitMask: `${mask} top center / contain no-repeat`, mask: `${mask} top center / contain no-repeat` }} />
