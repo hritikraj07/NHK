@@ -18,8 +18,7 @@ const FEATURED_RAIL_GARMENTS: RailGarment[] = [
       'Smooth Full-Zip Front Closure',
       'Tailored Regular Fit Silhouette',
     ],
-    image: 'https://files.catbox.moe/vd5jw3.png',
-    sideImage: 'https://files.catbox.moe/co0c55.webp',
+    image: 'https://files.catbox.moe/ca06ay.png',
     href: '/product/mens-classic-collared-leather-jacket',
   },
   {
@@ -34,8 +33,7 @@ const FEATURED_RAIL_GARMENTS: RailGarment[] = [
       'Modern Color-Block Styling',
       'Warm Cold-Weather Layering',
     ],
-    image: 'https://files.catbox.moe/4n72m3.png',
-    sideImage: 'https://files.catbox.moe/inlm58.webp',
+    image: 'https://files.catbox.moe/y4dbak.png',
     href: '/product/wear-lusso-mens-knitted-sweater',
   },
 ];

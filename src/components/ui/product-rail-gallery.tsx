@@ -61,9 +61,9 @@ const VB_H = 310;
 const ASPECT = VB_W / VB_H;
 const HOOK_TOP = 4;
 const RAIL_R = 4.6;
-const REST = -70;
+const REST = -50;
 const PERSPECTIVE = 1100;
-const GAP = 0.035;
+const GAP = 0.04;
 const MAX_H = 400;
 const MIN_WIDE_H = 200;
 const CAROUSEL_H = 340;
@@ -570,7 +570,7 @@ export function ClothingRailHero({
   const returnFocus = React.useRef(null as number | null);
   const pendingOpen = React.useRef(-1);
   const pointer = React.useRef({ id: -1, index: -1, x: 0, y: 0, t: 0, moved: false, kind: "", swipe: 0, lastX: 0, lastT: 0, v: 0 });
-  const sideWidths = React.useMemo(() => items.map((item) => (item.image ? (item.sideImage ? 0.3 : 0.4) : SIDE[item.kind ?? "tee"].width)), [items]);
+  const sideWidths = React.useMemo(() => items.map((item) => (item.image ? (item.sideImage ? 0.3 : 0.55) : SIDE[item.kind ?? "tee"].width)), [items]);
   const live = React.useRef({ active: null as number | null, size, reduced, count, openIndex: null as number | null, carouselIndex: 0, sideWidths });
   live.current = { ...live.current, active, size, reduced, count, openIndex, sideWidths };
 
@@ -1026,16 +1026,13 @@ export function ClothingRailHero({
                 }
                 if (pointer.current.id < 0 && !size.carousel) { stop(); choose(i); }
               }}
-              onClick={(event) => {
-                const pending = pendingOpen.current;
-                pendingOpen.current = -1;
-                if (event.detail === 0 || pending === i) {
-                  if (item.href) {
-                    setNavigatingIndex(i);
-                    router.push(item.href);
-                  } else {
-                    open(i);
-                  }
+              onClick={() => {
+                stop();
+                if (item.href) {
+                  setNavigatingIndex(i);
+                  router.push(item.href);
+                } else {
+                  open(i);
                 }
               }}
             >
