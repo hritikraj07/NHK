@@ -9,6 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: '#FAF9F6',
+        foreground: '#242424',
+        card: {
+          DEFAULT: '#FFFFFF',
+          foreground: '#242424',
+        },
+        popover: {
+          DEFAULT: '#FFFFFF',
+          foreground: '#242424',
+        },
+        muted: {
+          DEFAULT: '#EDE8DF',
+          foreground: '#777777',
+        },
+        border: '#E7E2D8',
+        ring: '#A47551',
         nhk: {
           bg: '#FAF9F6', // Warm off-white
           beige: '#EDE8DF', // Soft beige
